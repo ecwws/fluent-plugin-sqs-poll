@@ -9,7 +9,7 @@ gem install fluent-plugin-sqs-poll
 
 ## Configuration
 
-If either *aws_access_key* or *aws_secret_key* is missing, it will automatically
+If either **aws_access_key** or **aws_secret_key** is missing, it will automatically
 fall back to use IAM role for access control.
 
 ```
@@ -25,9 +25,9 @@ fall back to use IAM role for access control.
 
 ## Usage
 
-When messages are pulled off SQS queue, it's stored in key *body* of the
+When messages are pulled off SQS queue, it's stored in key **body** of the
 emmitted output. If your SQS message is in a known format, you probably want to
-use in conjunction with *fluent-plugin-parser*. For example, if your message
+use in conjunction with **fluent-plugin-parser**. For example, if your message
 from SQS is in JSON format, then you would want to do:
 
 ```
