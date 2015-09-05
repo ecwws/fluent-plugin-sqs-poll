@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-sqs-poll"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Richard Li"]
   spec.email         = ["evilcat@wisewolfsolutions.com"]
   spec.description   = %q{fluent input plugin use aws-sdk v2 sqs poller to receive messages}

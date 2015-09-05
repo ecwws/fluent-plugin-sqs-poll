@@ -41,7 +41,6 @@ module Fluent
       poller = Aws::SQS::QueuePoller.new(@sqs_url)
 
       poller.poll(max_number_of_messages: @max_number_of_messages) do |messages|
-        throw :stop_polling if @terminate
         messages.each do |msg|
           begin
             Engine.emit(@tag, Time.now.to_i,
@@ -57,6 +56,7 @@ module Fluent
             $log.warn_backtrace(e.backtrace)
           end
         end
+        throw :stop_polling if @terminate
       end
     end
   end
