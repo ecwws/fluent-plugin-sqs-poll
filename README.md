@@ -7,6 +7,12 @@ fluent input plugin poll data from AWS SQS
 gem install fluent-plugin-sqs-poll
 ```
 
+## IMPORTANT
+
+**SQS Poll uses AWS SDK v2, it will cause conflict with other AWS plugins
+that uses v1 version 'aws-sdk' gem. It will however be compatible with AWS
+plugins that uses 'aws-sdk-v1' gem.**
+
 ## Configuration
 
 If either **aws_access_key** or **aws_secret_key** is missing, it will automatically
