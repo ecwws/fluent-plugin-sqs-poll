@@ -45,7 +45,7 @@ module Fluent::Plugin
       poller.poll(max_number_of_messages: @max_number_of_messages) do |messages|
         messages.each do |msg|
           begin
-            Engine.emit(@tag, Time.now.to_i,
+            router.emit(@tag, Time.now.to_i,
               {
                 'body' => msg.body,
                 'handle' => msg.receipt_handle,
