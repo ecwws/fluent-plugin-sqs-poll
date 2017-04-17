@@ -1,7 +1,7 @@
 module Fluent
   require 'aws-sdk'
 
-  class SQSPollInput < Input
+  class SQSPollInput < Fluent::Plugin::Input
     Fluent::Plugin.register_input('sqs_poll', self)
 
     config_param :aws_access_key, :string, :default => nil, :secret => true
