@@ -1,4 +1,6 @@
-module Fluent
+require 'fluent/plugin/input'
+
+module Fluent::Plugin
   require 'aws-sdk'
 
   class SQSPollInput < Input
@@ -43,7 +45,7 @@ module Fluent
       poller.poll(max_number_of_messages: @max_number_of_messages) do |messages|
         messages.each do |msg|
           begin
-            Engine.emit(@tag, Time.now.to_i,
+            router.emit(@tag, Time.now.to_i,
               {
                 'body' => msg.body,
                 'handle' => msg.receipt_handle,
