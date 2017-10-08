@@ -51,6 +51,7 @@ module Fluent::Plugin
                 'handle' => msg.receipt_handle,
                 'id' => msg.message_id,
                 'md5' => msg.md5_of_body,
+                'sqs_receive_count' => msg.attributes['ApproximateReceiveCount'],
               }
             )
           rescue Exception => e
