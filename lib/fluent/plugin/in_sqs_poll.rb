@@ -41,7 +41,11 @@ module Fluent::Plugin
       end
 
       poller = Aws::SQS::QueuePoller.new(@sqs_url)
-
+      
+      poller.before_request do |stats|
+        throw :stop_polling if @terminate
+      end
+      
       poller.poll(max_number_of_messages: @max_number_of_messages) do |messages|
         messages.each do |msg|
           begin
