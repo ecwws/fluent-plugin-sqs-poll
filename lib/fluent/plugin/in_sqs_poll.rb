@@ -1,7 +1,7 @@
 require 'fluent/plugin/input'
 
 module Fluent::Plugin
-  require 'aws-sdk'
+  require 'aws-sdk-sqs'
 
   class SQSPollInput < Input
     Fluent::Plugin.register_input('sqs_poll', self)
